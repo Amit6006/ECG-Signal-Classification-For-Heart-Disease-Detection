@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Detection</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            background-color: #000000; /* Black background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* White text */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333333; /* Dark gray */
+            padding: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff; /* White text */
+        }
+        #heart-image {
+            width: 80%; /* Set image width to 80% of container width */
+            max-width: 500px; /* Set maximum image width */
+            height: auto;
+            margin: auto; /* Center image horizontally */
+            border-radius: 20px; /* Apply border radius to blur edges */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Add shadow effect */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>Heart Disease Detection</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*"><br><br>
+            <input type="submit" value="Upload Image">
+        </form>
+        <div id="prediction"></div>
+        <img id="heart-image" src="static/heart.gif" alt="Heart Image">
+    </div>
+
+    <!-- JavaScript for prediction display -->
+    <script>
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.text(); // Parse response as text
+            document.getElementById('prediction').innerHTML = `<p>${data}</p>`; // Use innerHTML to set HTML content
+        });
+    </script>
+</body>
+</html>
