@@ -13,5 +13,5 @@ These signals are obtained from 162 ECG recordings from three PhysioNet database
 
 Applying CWT on these 1D signals will give 2D scalograms that will be stored.(see ecgdataset.zip)
 
-Download all the required modules and run alex3.py.
+Download all the required modules and run alex3.py
 
