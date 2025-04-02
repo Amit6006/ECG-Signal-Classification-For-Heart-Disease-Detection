@@ -1,5 +1,5 @@
 # ECG-Signal-Classification-For-Heart-Disease-Detection
-A Full Stack Web Application that aim to help clients to detect heart condition by analyzing their ECG signals, we used alexnet which is a deep learning model and it classifies the heart condition into 3 categories with an accuracy of 94% was acchieved. 
+A Full Stack Web Application that aim to help clients to detect heart condition by analyzing their ECG signals, we used 3 deep learning models alexnet which is a deep learning model and it classifies the heart condition into 3 categories with an accuracy of 94% was acchieved. 
 
 We used ECG signals of three categories:
   •	Cardiac Arrhythmia (ARR)
